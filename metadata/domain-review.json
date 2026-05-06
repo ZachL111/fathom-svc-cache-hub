@@ -1,0 +1,73 @@
+{
+  "repo": "fathom-svc-cache-hub",
+  "language": "Kotlin",
+  "category": "Backend services",
+  "goal": "Design a Kotlin verification harness for cache systems, covering graph analysis, node-edge fixtures, and failure-oriented tests.",
+  "review_model": {
+    "terms": [
+      "queue pressure",
+      "retry load",
+      "worker slack",
+      "session drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "queue pressure",
+      "signal": 49,
+      "slack": 39,
+      "drag": 16,
+      "confidence": 81,
+      "score": 170,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "retry load",
+      "signal": 49,
+      "slack": 23,
+      "drag": 31,
+      "confidence": 54,
+      "score": 82,
+      "lane": "hold"
+    },
+    {
+      "name": "edge",
+      "focus": "worker slack",
+      "signal": 72,
+      "slack": 22,
+      "drag": 22,
+      "confidence": 59,
+      "score": 159,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "session drift",
+      "signal": 57,
+      "slack": 26,
+      "drag": 14,
+      "confidence": 48,
+      "score": 146,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "queue pressure",
+      "signal": 83,
+      "slack": 51,
+      "drag": 28,
+      "confidence": 58,
+      "score": 191,
+      "lane": "ship"
+    }
+  ]
+}

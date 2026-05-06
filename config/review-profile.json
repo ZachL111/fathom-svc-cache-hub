@@ -1,0 +1,29 @@
+{
+  "repo": "fathom-svc-cache-hub",
+  "language": "Kotlin",
+  "category": "Backend services",
+  "case_count": 5,
+  "score_formula": "signal * 2 + slack + confidence - drag * 3",
+  "lane_thresholds": {
+    "ship": 140,
+    "watch": 105
+  },
+  "read_order": [
+    "README.md",
+    "fixtures/domain_review.csv",
+    "metadata/domain-review.json",
+    "examples/fathom-svc-cache-walkthrough.md"
+  ],
+  "first_question": "Does queue pressure still dominate the review result?",
+  "second_question": "Is worker slack being penalized hard enough before session drift is trusted?",
+  "highest_case": {
+    "name": "stale",
+    "focus": "queue pressure",
+    "score": 191
+  },
+  "lowest_case": {
+    "name": "stress",
+    "focus": "retry load",
+    "score": 82
+  }
+}

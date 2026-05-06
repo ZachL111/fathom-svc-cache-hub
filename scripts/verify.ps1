@@ -59,5 +59,7 @@ foreach ($pathPattern in $knownPaths) {
 }
 
 New-Item -ItemType Directory -Force build | Out-Null
-kotlinc src/main/kotlin/Policy.kt tests/PolicyTest.kt -include-runtime -d build/test.jar
+kotlinc src/main/kotlin/Policy.kt src/main/kotlin/DomainReview.kt tests/PolicyTest.kt -include-runtime -d build/test.jar
 java -jar build/test.jar
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-fathom-svc-cache-detail.ps1
